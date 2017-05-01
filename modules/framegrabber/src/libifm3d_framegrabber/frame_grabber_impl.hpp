@@ -207,9 +207,7 @@ ifm3d::FrameGrabber::Impl::Impl(ifm3d::Camera::Ptr cam,
     boost::asio::ip::tcp::endpoint(
       boost::asio::ip::address::from_string(this->cam_ip_), this->cam_port_);
 
-  this->thread_ =
-    std::make_unique<std::thread>(
-      std::bind(&ifm3d::FrameGrabber::Impl::Run, this));
+  this->thread_ = std::unique_ptr<std::thread>(new std::thread(std::bind(&ifm3d::FrameGrabber::Impl::Run, this)));
 }
 
 ifm3d::FrameGrabber::Impl::~Impl()

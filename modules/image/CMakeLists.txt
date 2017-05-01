@@ -9,7 +9,7 @@ file(COPY ${IFM3D_IMAGE_SOURCE_DIR}/include
 ## Bring in dependent projects
 ################################################
 find_package(PCL 1.7 REQUIRED COMPONENTS common)
-find_package(OpenCV 3 REQUIRED)
+find_package(OpenCV 2.4 REQUIRED)
 
 ################################################
 ## Compiler and linker settings
